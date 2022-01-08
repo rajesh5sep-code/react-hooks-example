@@ -1,16 +1,24 @@
 import React, { useRef, useState } from "react";
 
 function Hello({ name, setName }) {
+  function changeName() {
+    setName(changedName);
+  }
+
   const [changedName, setChangedName] = useState("");
-  const imageRef = useRef(null);
+  const imageRef = useRef();
   return (
     <div>
-      <h1>Hello {name}!</h1>
+      <h1>Hello {changedName}!</h1>
       <div style={{ padding: "10px" }}>
         <input onChange={(event) => setChangedName(event.target.value)}></input>
       </div>
       <div style={{ padding: "10px" }}>
-        <button name="change Name" onClick={(event) => setName(changedName)}>
+        {/* <button name="change Name" onClick={() => {setName(changedName);}} >
+          Change Name
+        </button> */}
+
+        <button name="change Name" onClick={changeName}>
           Change Name
         </button>
       </div>
